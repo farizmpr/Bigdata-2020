@@ -55,6 +55,7 @@ selected_columns = ['Winner Pts', 'Loser', 'Loser Pts','MVP','Stadium','City','S
 new_2 = select_columns(data_sb_asli, selected_columns)
 new_2.to_csv('superbowl-2.csv',index=False)
 ```
+code : [split](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/bigdata2020_tugas1.ipynb)
 
 # Modeling
 ### Proses membaca data dari dua sumber yang berbeda
