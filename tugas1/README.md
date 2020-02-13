@@ -2,7 +2,7 @@
 
 # Dokumentasi Praktek ETL menggunakan KNIME
 
-⋅⋅* [Business Understanding]()⋅⋅
+..* [Business Understanding]()..
 ⋅⋅* [Data Understanding]()⋅⋅
 ⋅⋅* [Data Preparation]()⋅⋅
 ⋅⋅* Modeling⋅⋅
