@@ -41,6 +41,9 @@
 # Data Preparation
 # Modeling
 ### Proses membaca data dari dua sumber yang berbeda
+- yang pertama membaca data dari mysql, dengan menggunakan mysql connector nodes dari knime<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/mysql_connector-membaca.PNG "mysql connector")
+
 ### Proses Modeling
 # Evaluation
 # Deployment
