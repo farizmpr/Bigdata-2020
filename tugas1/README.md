@@ -1,8 +1,15 @@
-# Bigdata 2020
-Dokumentasi mata kuliah Big Data 2020
+## Bigdata 2020
 
-# Tugas 
+# Dokumentasi Praktek ETL menggunakan KNIME
 
-1. Tugas 1 : [Praktek ETL menggunakan KNIME]()
+⋅⋅* [Business Understanding]()
+⋅⋅* [Data Understanding]()
+⋅⋅* [Data Preparation]()
+⋅⋅* Modeling
+⋅⋅⋅⋅⋅* Proses membaca data dari dua sumber yang berbeda
+⋅⋅⋅⋅⋅* Proses Modeling
+⋅⋅* Evaluation
+⋅⋅* Deployment
+
 
 
