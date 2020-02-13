@@ -2,14 +2,14 @@
 
 # Dokumentasi Praktek ETL menggunakan KNIME
 
-..* [Business Understanding]()..
-⋅⋅* [Data Understanding]()⋅⋅
-⋅⋅* [Data Preparation]()⋅⋅
-⋅⋅* Modeling⋅⋅
-⋅⋅⋅⋅⋅* Proses membaca data dari dua sumber yang berbeda⋅⋅
-⋅⋅⋅⋅⋅* Proses Modeling⋅⋅
-⋅⋅* Evaluation⋅⋅
-⋅⋅* Deployment⋅⋅
+* [Business Understanding]()<br/>
+* [Data Understanding]()<br/>
+* [Data Preparation]()<br/>
+* Modeling<br/>
+  - Proses membaca data dari dua sumber yang berbeda<br/>
+  - Proses Modeling<br/>
+* Evaluation<br/>
+* Deployment<br/>
 
 
 
