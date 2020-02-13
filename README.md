@@ -1,2 +1,8 @@
-# Bigdata2020_tugas1
-Praktek ETL menggunakan KNIME
+# Bigdata 2020
+Dokumentasi mata kuliah Big Data 2020
+
+# Tugas 
+
+1. Tugas 1 : [Praktek ETL menggunakan KNIME]()
+
+
