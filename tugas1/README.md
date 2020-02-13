@@ -54,7 +54,7 @@ new.to_csv('superbowl-1.csv',index=False)
 selected_columns = ['Winner Pts', 'Loser', 'Loser Pts','MVP','Stadium','City','State']
 new_2 = select_columns(data_sb_asli, selected_columns)
 new_2.to_csv('superbowl-2.csv',index=False)
-```<br/>
+```
 
 # Modeling
 ### Proses membaca data dari dua sumber yang berbeda
