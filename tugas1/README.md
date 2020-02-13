@@ -24,24 +24,24 @@
 - dataset ini berisi para finalis dari superbowls, mulai dari tahun 1967 sampai 2020.
 
 - dataset ini 54 row dan mempunyai 10 coloumns
- - Date : Tanggal dilaksanakan superbowl final
- - SB : Superbowl Tittle, superbowl final pertama kali dilaksanakan tahun 1967, setiap tahunnya superbowl<br/>
+  - Date : Tanggal dilaksanakan superbowl final
+  - SB : Superbowl Tittle, superbowl final pertama kali dilaksanakan tahun 1967, setiap tahunnya superbowl<br/>
         memasang tittle dengan menggunakan huruf romawi , superbowl terakhir adalah LIV(54).\
- - Winner : nama tim yang keluar sebagai pemenang
- - Winner pts : points yang diraih pada tim pemenang pada laga final
- - Loser : nama tim yang mengalami kekalahan
- - Loser pts : points yang diraih oleh tim yang mengalami kekalahan
- - MVP : nama most valuable player pada superbowl
- - Stadium : Lokasi stadium dilaksanakannya partai puncak
- - City : Lokasi kota dilaksanakan partai puncak
- - State : negara bagian amerika tempat dihelatnya pertandingan puncak
+  - Winner : nama tim yang keluar sebagai pemenang
+  - Winner pts : points yang diraih pada tim pemenang pada laga final
+  - Loser : nama tim yang mengalami kekalahan
+  - Loser pts : points yang diraih oleh tim yang mengalami kekalahan
+  - MVP : nama most valuable player pada superbowl
+  - Stadium : Lokasi stadium dilaksanakannya partai puncak
+  - City : Lokasi kota dilaksanakan partai puncak
+  - State : negara bagian amerika tempat dihelatnya pertandingan puncak
 
 - Source dataset : https://www.kaggle.com/timoboz/superbowl-history-1967-2020
 
-#Data Preparation
-#Modeling
-#Evaluation
-#Deployment
+# Data Preparation
+# Modeling
+# Evaluation
+# Deployment
  
 
 
