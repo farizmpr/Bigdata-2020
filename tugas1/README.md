@@ -39,6 +39,23 @@
 - Source dataset : https://www.kaggle.com/timoboz/superbowl-history-1967-2020
 
 # Data Preparation
+
+- memisahkan dengan cara membuat dataframe pada data asli , dan memilih kolom yang akan dimasukkan ke file 1 dan 2
+``` import pandas as pd
+data = pd.read_csv("superbowl-asli.csv") 
+data.dropna(inplace = True) 
+data_sb_asli = pd.DataFrame(data)
+def select_columns(data_sb_asli, column_names):
+    new_frame = data_sb_asli.loc[:, column_names]
+    return new_frame
+selected_columns = ['Date', 'SB', 'Winner']
+new = select_columns(data_sb_asli, selected_columns)
+new.to_csv('superbowl-1.csv',index=False)
+selected_columns = ['Winner Pts', 'Loser', 'Loser Pts','MVP','Stadium','City','State']
+new_2 = select_columns(data_sb_asli, selected_columns)
+new_2.to_csv('superbowl-2.csv',index=False)
+```<br/>
+
 # Modeling
 ### Proses membaca data dari dua sumber yang berbeda
 #### Proses membaca dari MYSQL
