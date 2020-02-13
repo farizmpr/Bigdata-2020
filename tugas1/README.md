@@ -87,7 +87,7 @@
 - nama coloumn di sesuaikan agar mudah dimengerti<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/RENAME_COULOMNS.PNG " configure joiner")<br/>
 
-- menggunakan coloumn filter untuk menentukan coloumn mana yang mau ditampilkan
+- menggunakan coloumn filter untuk menentukan coloumn mana yang mau ditampilkan<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/coloumn_filter.PNG " hasil join")<br/>
 
 - hasil akhir<br/>
@@ -107,7 +107,7 @@
 
 # Deployment
 ### simpan ke csv
-- data yang pertama akan disimpan ke csv dengan menggunakan csv writer
+- data yang pertama akan disimpan ke csv dengan menggunakan csv writer<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/csv_writer.PNG " asli csv")<br/>
 
 - memilih penempatan dan konfigurasi lain nya
@@ -117,7 +117,7 @@
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/data_csv_berhasil.PNG " csv write")<br/>
 
  ### simpan ke db
-- data akan disimpan ke database menggunakan db writer
+- data akan disimpan ke database menggunakan db writer<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/db_writer.PNG " asli csv")<br/>
 
 - memilih konfigurasi lain nya, seperti nama dan db yang dituju
