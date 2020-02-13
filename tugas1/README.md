@@ -39,6 +39,23 @@
 - Source dataset : https://www.kaggle.com/timoboz/superbowl-history-1967-2020
 
 # Data Preparation
+
+- memisahkan dengan cara membuat dataframe pada data asli , dan memilih kolom yang akan dimasukkan ke file 1 dan 2
+``` import pandas as pd
+data = pd.read_csv("superbowl-asli.csv") 
+data.dropna(inplace = True) 
+data_sb_asli = pd.DataFrame(data)
+def select_columns(data_sb_asli, column_names):
+    new_frame = data_sb_asli.loc[:, column_names]
+    return new_frame
+selected_columns = ['Date', 'SB', 'Winner']
+new = select_columns(data_sb_asli, selected_columns)
+new.to_csv('superbowl-1.csv',index=False)
+selected_columns = ['Winner Pts', 'Loser', 'Loser Pts','MVP','Stadium','City','State']
+new_2 = select_columns(data_sb_asli, selected_columns)
+new_2.to_csv('superbowl-2.csv',index=False)
+```
+
 # Modeling
 ### Proses membaca data dari dua sumber yang berbeda
 #### Proses membaca dari MYSQL
@@ -67,11 +84,64 @@
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/data_mysql.PNG "hasil mysql")<br/>
 
 #### Proses membaca dari csv
+- memasang csv reader untuk membaca file csv<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/csv_reader.PNG " csv baca")<br/>
+- melakukan konfigurasi , menentukan path file dimana csv disimpan<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/csv_baca.PNG " csv reader")<br/>
+- hasil dari csv reader<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/hasil_csv.PNG " csv hasil")<br/>
 
 ### Proses Modeling
+- menggunakan joiner node, dengan mengsambungkan node dari database yang mengolah mysql dan csv<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/joiner.PNG " joiner")<br/>
+
+- melakukan configure dengan memilih kolom yang urutan nya sama , bisa dibilang foreign key agar datanya berhasil di append<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/configure_joiner.PNG " configure joiner")<br/>
+
+- dan hasilnya seperti ini<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/join_belumGantiNama.PNG " configure joiner")<br/>
+
+- nama coloumn di sesuaikan agar mudah dimengerti<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/RENAME_COULOMNS.PNG " configure joiner")<br/>
+
+- menggunakan coloumn filter untuk menentukan coloumn mana yang mau ditampilkan<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/coloumn_filter.PNG " hasil join")<br/>
+
+- hasil akhir<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/hasil_join.PNG " hasil join")<br/>
+
 # Evaluation
+
+- dari kedua data yang ada di mysql dan csv telah berhasil di join
+
+- hasil join
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/hasil_join.PNG " hasil join")<br/>
+
+- data asli 
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/data_asli.PNG " asli")<br/>
+
+- dari kedua data di atas, berhasil karena dari hasil join sama dengan data asli ketika sebelum dipisah
+
 # Deployment
+### simpan ke csv
+- data yang pertama akan disimpan ke csv dengan menggunakan csv writer<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/csv_writer.PNG " asli csv")<br/>
+
+- memilih penempatan dan konfigurasi lain nya
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/configure_csv.PNG " csv write")<br/>
  
+- data berhasil tersimpan
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/data_csv_berhasil.PNG " csv write")<br/>
+
+ ### simpan ke db
+- data akan disimpan ke database menggunakan db writer<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/db_writer.PNG " asli csv")<br/>
+
+- memilih konfigurasi lain nya, seperti nama dan db yang dituju
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/configure_db.PNG " asli csv")<br/>
+
+- berhasil tersimpan
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/berhasil_db.PNG " asli csv")<br/>
 
 
 
