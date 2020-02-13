@@ -12,6 +12,11 @@
 * [Deployment](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#deployment)<br/>
 
 # Business Understanding
+Kemungkinan-kemungkinan yg dapat dilakukan yaitu:
+1. Dari data tersebut, dapat dilakukan proses untuk melihat peforma pemain yang stabil untuk gelar MVP
+2. Dari data tersebut, dapat dilakukan proses untuk melihat peforma team yang stabil untuk meraih gelar juara
+3. Dari data tersebut, dapat dilakukan proses untuk melihat peforma team yang stabil untuk masuk final
+4. Dari data tersebut, dapat dilakukan proses untuk melihat bagian negara amerika serikat yang sering dijadikan tempat final
 
 # Data Understanding
 
