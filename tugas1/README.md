@@ -43,6 +43,15 @@
 ### Proses membaca data dari dua sumber yang berbeda
 - yang pertama membaca data dari mysql, dengan menggunakan mysql connector nodes dari knime<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/mysql_connector-membaca.PNG "mysql connector")
+- data di mysql seperti dibawah<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/sql_import-membaca.PNG "mysql data")
+- Merapikan row yang ada di mysql dengan menggunakan syntax ini<br/>
+``` DELETE FROM `table 1` WHERE `COL 1`='Date' ```<br/>
+- hasil menjalankan syntax di atas<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/hasil_rapih_mysql.PNG "hasil mysql")<br/>
+- melakukan configurasi disesuaikan dengan mysql yang ada di phpmyadmin, mulai dari database, port dari localhost dan username.<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/proses_configure_mysql.PNG "configure mysql")<br/>
+
 
 ### Proses Modeling
 # Evaluation
