@@ -149,8 +149,9 @@ code : [split](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/bigda
 - berhasil tersimpan
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/berhasil_db.PNG " asli csv")<br/>
 
+ ### gambar knime secara lengkap
 
-
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/knime.PNG " asli csv")<br/>
 
 
 
