@@ -16,14 +16,22 @@
 ### Proses Rename Data
 - perubahan nama table dilakukan melalui DBeaver<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/rename.PNG "rename table")
-- Kemudian hasil akan seperti ini, pastikan path file yang tersambung antara knime dan DBeaver sama<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/hasil_rename.PNG "result rename table")
+- kemudian menambahkan node table selector untuk melakukan seleksi pada table yang ingin dipakai, dengan table yang sudah satu path dengan DBclient<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/sqlite_table.PNG "sqlite table")
+- melakukan konfigurasi <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/konfigurasi_table_selector.PNG "sqlite configuration")
+- menambahkan node DB Reader agar data bisa terbaca <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/db_reader.PNG "sqlite reader")
+- dan memunculkan hasil seperti ini <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/hasil_exercise_01_db.PNG "result")
+- dan memunculkan hasil seperti ini <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/arsitek_exercise_01.PNG "result knime")
 
-#### Proses membaca dari MYSQL
-- yang pertama membaca data dari mysql, dengan menggunakan mysql connector nodes dari knime<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/mysql_connector-membaca.PNG "mysql connector")
+#### 01_DB_Connect
+- yang pertama kita menyambungkan data SQLite yang tersedia pada file dengan menambahkan node SQLite Connector<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/sqlite_connector.PNG "sqlite connector")
 
-- data di mysql seperti dibawah<br/>
+- <br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/sql_import-membaca.PNG "mysql data")
 
 - Merapikan row yang ada di mysql dengan menggunakan syntax ini<br/>
