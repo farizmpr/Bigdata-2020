@@ -1,15 +1,16 @@
 ## Bigdata 2020
 
-# Dokumentasi Praktek ETL menggunakan KNIME
+# KNIME Big Data
 
-* [Business Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#business-understanding)<br/>
-* [Data Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#data-understanding)<br/>
-* [Data Preparation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#data-preparation)<br/>
-* [Modeling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#modeling)<br/>
-  - [Proses membaca data dari dua sumber yang berbeda](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#proses-membaca-data-dari-dua-sumber-yang-berbeda)<br/>
-  - [Proses Modeling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#proses-modeling)<br/>
-* [Evaluation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#evaluation)<br/>
-* [Deployment](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#deployment)<br/>
+* [Exercise DB](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#Exercise DB)<br/>
+  - [exercise DB Connect](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#01_db_connect)<br/>
+  - [exercise DB processing exercise](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#02_DB_InDB_Processing_Exercise)<br/>
+  - [exercise DB modelling exercise](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#03_DB_Modelling)<br/>
+  - [exercise DB modelling exercise](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#02_DB_WritingToDB_Exercise)<br/>
+* [Hadoop](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#Exercise DB)<br/>
+  - [exercise Setup Hive](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#00_Setup_Hive_Table)<br/>
+  - [exercise Hive Modelling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#01_Hive_Modeling_Exercise)<br/>
+  - [exercise Hive Writing to DB](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#02_Hive_WritingtoDB_Exercise)<br/>
 
 # Business Understanding
 Kemungkinan-kemungkinan yg dapat dilakukan yaitu:
