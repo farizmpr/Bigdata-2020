@@ -1,69 +1,24 @@
 ## Bigdata 2020
 
-# Dokumentasi Praktek ETL menggunakan KNIME
+# KNIME Big Data
 
-* [Business Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#business-understanding)<br/>
-* [Data Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#data-understanding)<br/>
-* [Data Preparation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#data-preparation)<br/>
-* [Modeling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#modeling)<br/>
-  - [Proses membaca data dari dua sumber yang berbeda](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#proses-membaca-data-dari-dua-sumber-yang-berbeda)<br/>
-  - [Proses Modeling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#proses-modeling)<br/>
-* [Evaluation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#evaluation)<br/>
-* [Deployment](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#deployment)<br/>
+* [Exercise DB](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#Exercise_DB)<br/>
+  - [exercise DB Connect](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#01_db_connect)<br/>
+  - [exercise DB processing exercise](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#02_DB_InDB_Processing_Exercise)<br/>
+  - [exercise DB modelling exercise](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#03_DB_Modelling)<br/>
+  - [exercise DB Writing To DB](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#04_DB_WritingToDB_Exercise)<br/>
+* [Hadoop](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#Exercise_Hadoop)<br/>
+  - [exercise Setup Hive](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#00_Setup_Hive_Table)<br/>
+  - [exercise Hive Modelling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#01_Hive_Modeling_Exercise)<br/>
+  - [exercise Hive Writing to DB](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#02_Hive_WritingtoDB_Exercise)<br/>
 
-# Business Understanding
-Kemungkinan-kemungkinan yg dapat dilakukan yaitu:
-1. Dari data tersebut, dapat dilakukan proses untuk melihat peforma pemain yang stabil untuk gelar MVP
-2. Dari data tersebut, dapat dilakukan proses untuk melihat peforma team yang stabil untuk meraih gelar juara
-3. Dari data tersebut, dapat dilakukan proses untuk melihat peforma team yang stabil untuk masuk final
-4. Dari data tersebut, dapat dilakukan proses untuk melihat bagian negara amerika serikat yang sering dijadikan tempat final
+# Exercise DB
+### Proses Rename Data
+- perubahan nama table dilakukan melalui DBeaver<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/rename.PNG "rename table")
+- Kemudian hasil akan seperti ini, pastikan path file yang tersambung antara knime dan DBeaver sama<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/hasil_rename.PNG "result rename table")
 
-# Data Understanding
-
-- Super bowl adalah acara tahunan American Football yang menentukan jawara dari National<br/>
-  Football League (NFL). Pertandingan puncak pada satu musim NFL dan menghasilkan kesimpulan dari<br/>
-  NFL playoffs. Pertandingan ini dihelat di salah satu kota amerika, ditentukan empat tahun sebelum<br/>
-  penyelenggaraan. mulai dari januari 1971, pemenang dari AFC akan menghadapi pemenang dari NFC dan kedua<br/>
-  tim akan diadu pada laga puncak NFL Playoffs.  
-  
-- dataset ini berisi para finalis dari superbowls, mulai dari tahun 1967 sampai 2020.
-
-- dataset ini 54 row dan mempunyai 10 coloumns
-  - Date : Tanggal dilaksanakan superbowl final
-  - SB : Superbowl Tittle, superbowl final pertama kali dilaksanakan tahun 1967, setiap tahunnya superbowl<br/>
-        memasang tittle dengan menggunakan huruf romawi , superbowl terakhir adalah LIV(54).
-  - Winner : nama tim yang keluar sebagai pemenang
-  - Winner pts : points yang diraih pada tim pemenang pada laga final
-  - Loser : nama tim yang mengalami kekalahan
-  - Loser pts : points yang diraih oleh tim yang mengalami kekalahan
-  - MVP : nama most valuable player pada superbowl
-  - Stadium : Lokasi stadium dilaksanakannya partai puncak
-  - City : Lokasi kota dilaksanakan partai puncak
-  - State : negara bagian amerika tempat dihelatnya pertandingan puncak
-
-- Source dataset : https://www.kaggle.com/timoboz/superbowl-history-1967-2020
-
-# Data Preparation
-
-- memisahkan dengan cara membuat dataframe pada data asli , dan memilih kolom yang akan dimasukkan ke file 1 dan 2
-``` import pandas as pd
-data = pd.read_csv("superbowl-asli.csv") 
-data.dropna(inplace = True) 
-data_sb_asli = pd.DataFrame(data)
-def select_columns(data_sb_asli, column_names):
-    new_frame = data_sb_asli.loc[:, column_names]
-    return new_frame
-selected_columns = ['Date', 'SB', 'Winner']
-new = select_columns(data_sb_asli, selected_columns)
-new.to_csv('superbowl-1.csv',index=False)
-selected_columns = ['Winner Pts', 'Loser', 'Loser Pts','MVP','Stadium','City','State']
-new_2 = select_columns(data_sb_asli, selected_columns)
-new_2.to_csv('superbowl-2.csv',index=False)
-```
-code : [split](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/bigdata2020_tugas1.ipynb)
-
-# Modeling
-### Proses membaca data dari dua sumber yang berbeda
 #### Proses membaca dari MYSQL
 - yang pertama membaca data dari mysql, dengan menggunakan mysql connector nodes dari knime<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/mysql_connector-membaca.PNG "mysql connector")
