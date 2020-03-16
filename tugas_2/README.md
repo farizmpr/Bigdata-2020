@@ -24,6 +24,117 @@
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/db_reader.PNG "sqlite reader")
 - dan memunculkan hasil seperti ini <br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/hasil_exercise_01_db.PNG "result")
-- dan memunculkan hasil seperti ini <br/>
+- tampilan knime secara lengkap <br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/arsitek_exercise_01.PNG "result knime")
+
+### 02_DB_InDB_Processing
+- memasang node sql connector <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/exercise_2_sql_connector.PNG "sql table")
+- memasang node table selector agar dapat memilih table 5116100133_ss13pme dan 5116100133_ss13hme  <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/memilih_table.PNG "choose table")
+- memilih configuration pada node table selector  <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/choose_exercise_2.PNG "conf choose table")
+- untuk meremove beberapa coloumn puma* dan pwgtp*  <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/db_coloumn_filter.PNG "conf choose table")
+- konfigurasi untuk menghapus coloumn puma* dan pwgtp*  <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/filter_conf.PNG "conf choose 2 table")
+- node db joiner untuk menyatukan dua table yang sudah dikondisikan  <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/db_join.PNG "db join 2 table")
+- konfigurasi untuk menggabungkan berdasarkan serialno  <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/conf_serialno.PNG "db join conf table")
+- memasang db reader untuk membaca hasil join  <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/db_read.PNG "db read")
+- berikut hasilnya  <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/db_result_serialno.PNG "db serialno")
+
+##### memilih data dari 5116100133_ss13pme is null
+- memilih node db row filter <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/db_row_filter.PNG "sql table")
+- memilih cow is null dalam node db row filter <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/conf_exer2.PNG "sql table")
+- menampilkan hasil dengan db reader <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/db_read.PNG "read table")
+- hasil dari db reader <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/cow_null.PNG "read cow table")
+
+##### memilih data dari 5116100133_ss13pme is not null
+- untuk pemakaian node sama seperti ss13pme is null, yang berbeda hanya di configuration, configuration ketika di db row filter <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/cow_is_not_null.PNG "sql table")
+- untuk setting hasil yang didapati dari db reader seperti berikut <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/result_not_null.PNG "sql table")
+
+##### merata-rata kan AGEP untuk sex groups yang berbeda
+- memilih node db groupby <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/db_groupby.PNG "sql table")
+- melakukan setting an seperti ini sesuai perintah soal <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/setting_db_groupby.PNG "sql table")
+- menampilkan hasil dengan db reader <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/db_read.PNG "read table")
+- hasil dari db reader <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/hasil_agep.PNG "read cow table")
+
+
+##### mengurutkan AGEP
+- memilih node db sorter <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/db_sorter.PNG "sql table")
+- melakukan setting pada node sorter <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/agep_desc.PNG "sql table")
+- memilih node db query <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/db_query.PNG "sql table")
+- menjalankan syntax ini <br/>
+``` SELECT * FROM #table# AS "table" limit 10 ```
+- menampilkan hasil dengan db reader <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/db_read.PNG "read table")
+- hasil dari db reader <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/db_exer2_opt.PNG "read cow table")
+
+#### Gambar secara lengkap
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/hasil_exer2.PNG "sql table")
+
+### 03_DB_Modelling
+
+- memasang node sql connector <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/exercise_2_sql_connector.PNG "sql table")
+- memasang node table selector agar dapat memilih table 5116100133_ss13pme <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/memilih_table.PNG "choose table")
+- memilih configuration pada node table selector  <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/choose_exercise_2.PNG "conf choose table")
+- untuk meremove beberapa coloumn puma* dan pwgtp*  <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/db_coloumn_filter.PNG "conf choose table")
+- konfigurasi untuk menghapus coloumn puma* dan pwgtp*  <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/filter_conf.PNG "conf choose 2 table")
+
+##### memilih data dari 5116100133_ss13pme is null
+- memilih node db row filter <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/db_row_filter.PNG "sql table")
+- memilih cow is null dalam node db row filter <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/conf_exer2.PNG "sql table")
+- menampilkan hasil dengan db reader <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/db_read.PNG "read table")
+- hasil dari db reader <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/cow_null.PNG "read cow table")
+- memilih node number to string <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/number_string.PNG "sql table")
+- mengkonfigurasi sesuai soal <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/config_string.PNG "sql table")
+- memilih node decision tree learner <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/node_decision_tree.PNG "read table")
+- konfigurasi perhitungan bisa menggunakan gain ratio dan gini index pada konfigurasi, tetapi jangan lupa untuk memilih class yang akan di setting <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/config_string.PNG "read cow table")
+- tampilan view tree <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/view_tree.PNG "read table")
+
+##### memilih data dari 5116100133_ss13pme is not null
+- untuk pemakaian node sama seperti ss13pme is null, yang berbeda hanya di configuration, configuration ketika di db row filter <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/cow_is_not_null.PNG "sql table")
+- untuk setting hasil yang didapati dari db reader seperti berikut <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/result_not_null.PNG "sql table")
+
+### hasil
+- memilih node decision tree predictor, dan disambungkan dengan data cow is null dan data cow is not null yang telah diolah <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/node_predict.PNG "read table")
+- hasil train <br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/predict.PNG "read cow table")
+
+### 04_DB_WritingToDB
 
