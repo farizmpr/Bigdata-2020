@@ -4,13 +4,13 @@
 
 * [Exercise DB](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#Exercise_DB)<br/>
   - [exercise DB Connect](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#01_db_connect)<br/>
-  - [exercise DB processing exercise](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#02_DB_InDB_Processing_Exercise)<br/>
+  - [exercise DB processing exercise](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#02_DB_InDB_Processing)<br/>
   - [exercise DB modelling exercise](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#03_DB_Modelling)<br/>
-  - [exercise DB Writing To DB](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#04_DB_WritingToDB_Exercise)<br/>
-* [Hadoop](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#Exercise_Hadoop)<br/>
+  - [exercise DB Writing To DB](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#04_DB_WritingToDB)<br/>
+* [Hadoop](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#Hadoop-Exercise)<br/>
   - [exercise Setup Hive](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#00_Setup_Hive_Table)<br/>
-  - [exercise Hive Modelling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#01_Hive_Modeling_Exercise)<br/>
-  - [exercise Hive Writing to DB](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#02_Hive_WritingtoDB_Exercise)<br/>
+  - [exercise Hive Modelling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#01_Hive_Modelling)<br/>
+  - [exercise Hive Writing to DB](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md#02_Hive_WritingtoDB)<br/>
 
 # Exercise DB
 ### 01_DB_Connect
@@ -189,4 +189,34 @@
 
 # Hadoop Exercise
 ### 00_Setup_Hive_Table
+
+dengan arsitektur ini kita menggunakan local big data environment untuk dapat disambungkan kepada hive serta dapat merename table menjadi format 5116100133..., dan pastikan workflow berjalan semua
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/hive_setup.PNG "read cow table")
+
+- untuk perename an nama dilakukan pada node db table creator
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/rename_hadoop.PNG "read cow table")
+- kemudian menyambungkan hive dengan local env big data pada knime dengan mencocokan
+``jdbc:hive2://localhost:62895``
+- untuk pengecekan dapat menjalankan syntax ini pada dbeaver ``SELECT * FROM 5116100133_ss13hme ``
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/ss13hme_133.PNG "read cow table")
+- untuk pengecekan dapat menjalankan syntax ini pada dbeaver ``SELECT * FROM 5116100133_ss13pme ``
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/5116133_pme.PNG "read cow table")
+
+### 01_Hive_Modelling
+- untuk arsitektur nya dan fungsi node nya sama, tapi untuk menyambungkan kepada hive . node sqlite connection harus diganti dengan local big data environment yang sudah disesuaikan JDBC NYA `` Connection: URL="jdbc:hive2://localhost:62895/"``
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/hive_01.PNG "read cow table")
+- ketika berhasil table selector akan menampilkan seperti ini, pastikan semua node berjalan
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/hive_01.PNG "read cow table")
+
+### 02_Hive_WritingtoDB
+- untuk bagian ini mempersiapkan untuk di arahkan kepada hive, table creator akan buat dengan nama baru dan db loader akan mengkonfigurasi
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/hive_02.PNG "read cow table")
+- konfigurasi table kreator
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/konf_hive.PNG "read cow table")
+- konfigurasi db loader<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/load_hive.PNG "read cow table")
+- menjalankan syntax di dbeaver hive dengan syntax ``SELECT * FROM 5116100133_newtable  ``
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/syntax_hive_02.PNG "read cow table")
+
+
 
