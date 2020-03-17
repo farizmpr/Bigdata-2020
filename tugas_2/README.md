@@ -213,7 +213,7 @@ dengan arsitektur ini kita menggunakan local big data environment untuk dapat di
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/hive_02.PNG "read cow table")
 - konfigurasi table kreator
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/konf_hive.PNG "read cow table")
-- konfigurasi db loader
+- konfigurasi db loader<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/load_hive.PNG "read cow table")
 - menjalankan syntax di dbeaver hive dengan syntax ``SELECT * FROM 5116100133_newtable  ``
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/picture/syntax_hive_02.PNG "read cow table")
