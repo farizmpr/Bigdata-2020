@@ -1,6 +1,6 @@
 ## Bigdata 2020
 
-# Dokumentasi Praktek ETL menggunakan KNIME
+# Dokumentasi Praktek Recommendation System menggunakan KNIME
 
 * [Business Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#business-understanding)<br/>
 * [Data Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#data-understanding)<br/>
