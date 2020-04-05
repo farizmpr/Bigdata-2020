@@ -68,10 +68,10 @@ Kemungkinan-kemungkinan yg dapat dilakukan yaitu:
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/file_reader_conf.PNG "file reader conf")<br>
 
 - dari ini kita melakukan konfigurasi di dalam node add fields untuk menambahkan userid dan timestamp.<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/add_field.PNG "add field")<br>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/add_fields.PNG "add field")<br>
 
 - di dalam add field terdapat workflow yang dapat menyeting userid dan timestamp<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_add_field.PNG "add field")<br>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_add_fields.PNG "add field")<br>
 
 - melakukan konfigurasi di dalam node constant value untuk menyeting timestamp dan node selanjutnya untuk menyeting userid
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_timestamp.PNG "add field")
@@ -133,44 +133,44 @@ Kemungkinan-kemungkinan yg dapat dilakukan yaitu:
 # Deployment
 
 - workflow ini akan mendisplay 10 peringkat prediksi film rekomendasi<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/deploy.PNG " asli csv")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/deploy.PNG " asli csv")<br/>
 
 ### konfigurasi node top 20
 - tidak lupa menjalankan file reader untuk di join dengan file prediksi<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/deploy_read.PNG " asli csv")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/deploy_read.PNG " asli csv")<br/>
 
 - jalankan spark predictor dan akan mendapati hasil seperti ini<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/spark_deploy.PNG " asli csv")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/spark_deploy.PNG " asli csv")<br/>
 
 - kemudian jalankan spark to table untu mengubah spark ke dalam table, kemudian masuk ke konfigurasi movies recommended<br>
   dan di dalamnya ada file reader dan joiner, untuk menggabungkan data yang awal dengan data yang telah diprediksi.<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/recom.PNG " asli csv")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/recom.PNG " asli csv")<br/>
 
 - row filter disini untuk menghapus hasil prediksi yang hasilnya NAN<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/row_predik.PNG " asli csv")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/row_predik.PNG " asli csv")<br/>
 
 - dan untuk mengurutkan data hasilnya dipilih ascending untuk nilai kolom prediction
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/asc.PNG " asli csv")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/asc.PNG " asli csv")<br/>
 
 - row filter dipakai dua kali, untuk row filter terakhir digunakan untuk mengambil best 10 nya, dan outputnya<br>
   disimpan ke direktori ke yang sudah kita pasang menggunakan csv writer.
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/best.PNG " asli csv")<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/excel.PNG " asli csv")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/best.PNG " asli csv")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/excel.PNG " asli csv")<br/>
 
 ## hasil deploy
 - hasil yang didapati adalah sebagai berikut sesuai dengan arahan untuk memberi best 10 movie<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/hasil_done.PNG " asli csv")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/hasil_done.PNG " asli csv")<br/>
 
 # 3.Perbandingan menggunakan timer info
 
 - untuk melakukan perbandingan antara csv to spark dengan reader, kita harus menambahkan node seperti berikut<br> 
   dan mengarahkan kepada data csv yang sama
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/timer.PNG " asli csv")<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/konfi.PNG " asli csv")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/timer.PNG " asli csv")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/konfi.PNG " asli csv")<br/>
 
 - perbedaan data sebagai berikut
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/spark_time.PNG " asli csv")<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/read_time.PNG " asli csv")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/spark_time.PNG " asli csv")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/read_time.PNG " asli csv")<br/>
 
 - dari data diatas sangat jauh perbedaan antara csv to spark dengan file reader, file reader hanya melakukan pengambilan<br> 
   data yang sangat besar dan ketika melakukan eksekusi, komputer hanya melakukan itu  sendiri tanpa bantuan framework<br>
