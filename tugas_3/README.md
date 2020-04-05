@@ -181,6 +181,6 @@ Kemungkinan-kemungkinan yg dapat dilakukan yaitu:
 
 - dari data diatas sangat jauh perbedaan antara csv to spark dengan file reader, file reader hanya melakukan pengambilan<br/>
   data yang sangat besar dan ketika melakukan eksekusi, komputer hanya melakukan itu  sendiri tanpa bantuan framework<br/>
-  computing apapun, tidak seperti spark yang merupakan open source cluster framework, spark itu untuk pemrosesan data yang<br/>
-  lebih cepat, karena data yang dipakai juga besar, jadi terdapat perbedaan waktu yang mencolok.<br/>
+  computing apapun, tidak seperti spark yang merupakan open source cluster framework, spark itu untuk pemrosesan data<br/>
+  yang lebih cepat, karena data yang dipakai juga besar, jadi terdapat perbedaan waktu yang mencolok.<br/>
 
