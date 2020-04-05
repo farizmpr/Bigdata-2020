@@ -2,156 +2,178 @@
 
 # Dokumentasi Praktek ETL menggunakan KNIME
 
-* [Business Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#business-understanding)<br/>
-* [Data Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#data-understanding)<br/>
-* [Data Preparation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#data-preparation)<br/>
-* [Modeling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#modeling)<br/>
-  - [Proses membaca data dari dua sumber yang berbeda](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#proses-membaca-data-dari-dua-sumber-yang-berbeda)<br/>
-  - [Proses Modeling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#proses-modeling)<br/>
-* [Evaluation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#evaluation)<br/>
-* [Deployment](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/README.md#deployment)<br/>
+* [Business Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#business-understanding)<br/>
+* [Data Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#data-understanding)<br/>
+* [Data Preparation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#data-preparation)<br/>
+* [Modeling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#modeling)<br/>
+* [Evaluation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#evaluation)<br/>
+* [Deployment](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#deployment)<br/>
 
 # Business Understanding
 Kemungkinan-kemungkinan yg dapat dilakukan yaitu:
-1. Dari data tersebut, dapat dilakukan proses untuk melihat peforma pemain yang stabil untuk gelar MVP
-2. Dari data tersebut, dapat dilakukan proses untuk melihat peforma team yang stabil untuk meraih gelar juara
-3. Dari data tersebut, dapat dilakukan proses untuk melihat peforma team yang stabil untuk masuk final
-4. Dari data tersebut, dapat dilakukan proses untuk melihat bagian negara amerika serikat yang sering dijadikan tempat final
+1. Dari data tersebut, dapat dilakukan proses untuk melihat rekomendasi film terbaik yang dinilai oleh sebelumnya
+2. Dari data tersebut, dapat dilihat berupa kumpulan data dengan isi kumpulan film yang disertai dengan ratings
+3. Dari data tersebut, dapat dilakukan proses evaluasi serta filtering agar menghasilkan 10 film terbaik yang sudah dinilai sebelumnya
 
 # Data Understanding
 
-- Super bowl adalah acara tahunan American Football yang menentukan jawara dari National<br/>
-  Football League (NFL). Pertandingan puncak pada satu musim NFL dan menghasilkan kesimpulan dari<br/>
-  NFL playoffs. Pertandingan ini dihelat di salah satu kota amerika, ditentukan empat tahun sebelum<br/>
-  penyelenggaraan. mulai dari januari 1971, pemenang dari AFC akan menghadapi pemenang dari NFC dan kedua<br/>
-  tim akan diadu pada laga puncak NFL Playoffs.  
+- Dataset menggambarkan penilaian dari movielens sebagai pelayanan movie recommendation, dataset ini berisi 20000263<br>
+  peringkat, data ini dibuat oleh 138493 pengguna dari tanggal 09 januari 1995 sampai 31 maret 2015. dataset ini berisi<br>
+  pengguna yang dipilih secara acak untuk dimasukkan. semua pengguna memiliki nilai setidaknya 20 film.
   
-- dataset ini berisi para finalis dari superbowls, mulai dari tahun 1967 sampai 2020.
+- dataset  masing-masing pengguna di representasi oleh id
 
-- dataset ini 54 row dan mempunyai 10 coloumns
-  - Date : Tanggal dilaksanakan superbowl final
-  - SB : Superbowl Tittle, superbowl final pertama kali dilaksanakan tahun 1967, setiap tahunnya superbowl<br/>
-        memasang tittle dengan menggunakan huruf romawi , superbowl terakhir adalah LIV(54).
-  - Winner : nama tim yang keluar sebagai pemenang
-  - Winner pts : points yang diraih pada tim pemenang pada laga final
-  - Loser : nama tim yang mengalami kekalahan
-  - Loser pts : points yang diraih oleh tim yang mengalami kekalahan
-  - MVP : nama most valuable player pada superbowl
-  - Stadium : Lokasi stadium dilaksanakannya partai puncak
-  - City : Lokasi kota dilaksanakan partai puncak
-  - State : negara bagian amerika tempat dihelatnya pertandingan puncak
+- dataset berisi csv sebagai berikut :
+  - tag.csv that berisi tags movie yang dilakukan oleh users:
+  - userId
+  - movieId
+  - tag
+  - timestamp
 
-- Source dataset : https://www.kaggle.com/timoboz/superbowl-history-1967-2020
+- rating.csv rating yang dilakukan oleh users:
+  - userId
+  - movieId
+  - rating
+  - timestamp
+  
+- movie.csv mengandung informasi dari movie:
+  - movieId
+  - title
+  - genres
+  
+- link.csv pengidentifikasi yang disangkutpautkan ke source lain:
+  - movieId
+  - imdbId
+  - tmbdId
+  
+- genome_scores.csv mengandung movie-tag relevance data:
+  - movieId
+  - tagId
+  - relevance
+  
+- genome_tags.csv mengandung tag descriptions:
+  - tagId
+  - tag
+  
+- Source dataset : https://grouplens.org/datasets/movielens/
 
 # Data Preparation
 
-- memisahkan dengan cara membuat dataframe pada data asli , dan memilih kolom yang akan dimasukkan ke file 1 dan 2
-``` import pandas as pd
-data = pd.read_csv("superbowl-asli.csv") 
-data.dropna(inplace = True) 
-data_sb_asli = pd.DataFrame(data)
-def select_columns(data_sb_asli, column_names):
-    new_frame = data_sb_asli.loc[:, column_names]
-    return new_frame
-selected_columns = ['Date', 'SB', 'Winner']
-new = select_columns(data_sb_asli, selected_columns)
-new.to_csv('superbowl-1.csv',index=False)
-selected_columns = ['Winner Pts', 'Loser', 'Loser Pts','MVP','Stadium','City','State']
-new_2 = select_columns(data_sb_asli, selected_columns)
-new_2.to_csv('superbowl-2.csv',index=False)
-```
-code : [split](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/bigdata2020_tugas1.ipynb)
+- data disiapkan dengan dua cara, yang satu menyiapkan data yang didownload dari link di atas, karena berbentuk csv dan menyiapkan data   yang menggunakan spark. dua persiapan tersebut dilakukan dengan menyiapkan node di KNIME.
+### File Reader File
+- yang pertama membaca data dari file yang sudah di download dari file terlampir. yang dibaca hanya movies.csv<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/file_reader.PNG "file reader")<br>
+
+- dengan melakukan konfigurasi seperti ini, dengan memastikan movieID terbaca<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/file_reader_conf.PNG "file reader conf")<br>
+
+- dari ini kita melakukan konfigurasi di dalam node add fields untuk menambahkan userid dan timestamp.<br>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/add_field.PNG "add field")<br>
+
+- di dalam add field terdapat workflow yang dapat menyeting userid dan timestamp<br>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_add_field.PNG "add field")<br>
+
+- melakukan konfigurasi di dalam node constant value untuk menyeting timestamp dan node selanjutnya untuk menyeting userid
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_timestamp.PNG "add field")
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/timestamp.PNG "add field")<br>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_userid.PNG "add field")
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/userid.PNG "add field")<br>
+
+- melakukan penambahan node row splitter untuk memecah data untuk keperluan mentraining data serta memilih 20 film<br>
+  yang dipilih secara acak.<br>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/row_splitter.PNG "add field")<br>
+
+- melakukan konfigurasi di dalam row splitter seperti ini<br>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/row_splitter_conf.PNG "add field")<br>
+
+- open vie node tersebut untuk melihat hasilnya<br>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_rating.PNG "add field")<br>
+
+- hasil rating didapati seperti ini, dengan keterangan tertera pada gambar, hasil ini sesuai dengan userid yang disetting<br>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/hasil_ratings.PNG "add field")<br>
+
+### File Reader versi SPARK
+
+- memulai dengan memasang node local big data environment untuk disambung ke node spark<br>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/local_bigdata.PNG "add field")<br>
+
+- pastikan konfigurasi seperti ini<br>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/conf_local_bigdata.PNG "add field")<br>
+
+- sambungkan local environment big data dengan spark, sehingga dapat membaca file dari directory yang tertera<br>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/spark.PNG "add field")
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/conf_spark.PNG "add field")<br>
+
+- pasang node spark partitioning untuk melakukan partisi 80-20 pada data, setelah itu datanya digunakan untuk training<br>
+  model dataset<br>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/partition.PNG "add field")<br>
+
+- pastikan memilih persen dan memilih draw randomly.<br>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/conf_partition.PNG "add field")<br>
 
 # Modeling
-### Proses membaca data dari dua sumber yang berbeda
-#### Proses membaca dari MYSQL
-- yang pertama membaca data dari mysql, dengan menggunakan mysql connector nodes dari knime<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/mysql_connector-membaca.PNG "mysql connector")
 
-- data di mysql seperti dibawah<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/sql_import-membaca.PNG "mysql data")
-
-- Merapikan row yang ada di mysql dengan menggunakan syntax ini<br/>
-``` DELETE FROM `table 1` WHERE `COL 1`='Date' ```<br/>
-
-- hasil menjalankan syntax di atas<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/hasil_rapih_mysql.PNG "hasil mysql")<br/>
-
-- melakukan configurasi disesuaikan dengan mysql yang ada di phpmyadmin, mulai dari database, port dari localhost dan username.<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/proses_configure_mysql.PNG "configure mysql")<br/>
-
-- db table selector untuk mengambil Koneksi DB sebagai input dan memungkinkan untuk memilih tabel atau tampilan dari dalam database yang terhubung.<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/db_table_selector.PNG "db table selector")<br/>
-
-- db reader untuk Mengeksekusi kueri input dalam database dan mengambil hasilnya ke dalam tabel data KNIME.<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/db_reader.PNG "db reader")<br/>
-
-- hasil akhir dari pembacaan database yang terhubung dari mysql<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/data_mysql.PNG "hasil mysql")<br/>
-
-#### Proses membaca dari csv
-- memasang csv reader untuk membaca file csv<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/csv_reader.PNG " csv baca")<br/>
-- melakukan konfigurasi , menentukan path file dimana csv disimpan<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/csv_baca.PNG " csv reader")<br/>
-- hasil dari csv reader<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/hasil_csv.PNG " csv hasil")<br/>
-
-### Proses Modeling
-- menggunakan joiner node, dengan mengsambungkan node dari database yang mengolah mysql dan csv<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/joiner.PNG " joiner")<br/>
-
-- melakukan configure dengan memilih kolom yang urutan nya sama , bisa dibilang foreign key agar datanya berhasil di append<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/configure_joiner.PNG " configure joiner")<br/>
-
-- dan hasilnya seperti ini<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/join_belumGantiNama.PNG " configure joiner")<br/>
-
-- nama coloumn di sesuaikan agar mudah dimengerti<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/RENAME_COULOMNS.PNG " configure joiner")<br/>
-
-- menggunakan coloumn filter untuk menentukan coloumn mana yang mau ditampilkan<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/coloumn_filter.PNG " hasil join")<br/>
-
-- hasil akhir<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/hasil_join.PNG " hasil join")<br/>
+- proses modeling dimulai ketika menggabungkan data di node spark concatenate, dan node dari ini untuk<br>
+  menjalankan algoritma buat modeling dengan memakai data training set, yang nantinya akan di tes dengan test-set.
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/model.PNG "add field")<br>
 
 # Evaluation
 
-- dari kedua data yang ada di mysql dan csv telah berhasil di join
+- data yang sudah diprediksi berupa seperti ini
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/hasilprediksi.PNG "add field")<br>
 
-- hasil join
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/hasil_join.PNG " hasil join")<br/>
-
-- data asli 
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/data_asli.PNG " asli")<br/>
-
-- dari kedua data di atas, berhasil karena dari hasil join sama dengan data asli ketika sebelum dipisah
+- dari data yang sudah di modeling dan dari proses evaluasi ini menghapus juga data NAN.setalah itu terdapat hasil<br>
+  untuk menghitung kesalahan antar peringkat film yang awal dan film yang diprediksi.
+ ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/evaluation.PNG "add field")<br>
+ 
+ - didapati hasil evaluasi dari percobaan seperti berikut
+  ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/hasil_prediksi.PNG "add field")<br>
+ 
 
 # Deployment
-### simpan ke csv
-- data yang pertama akan disimpan ke csv dengan menggunakan csv writer<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/csv_writer.PNG " asli csv")<br/>
 
-- memilih penempatan dan konfigurasi lain nya
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/configure_csv.PNG " csv write")<br/>
- 
-- data berhasil tersimpan
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/data_csv_berhasil.PNG " csv write")<br/>
+- workflow ini akan mendisplay 10 peringkat prediksi film rekomendasi<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/deploy.PNG " asli csv")<br/>
 
- ### simpan ke db
-- data akan disimpan ke database menggunakan db writer<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/db_writer.PNG " asli csv")<br/>
+### konfigurasi node top 20
+- tidak lupa menjalankan file reader untuk di join dengan file prediksi<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/deploy_read.PNG " asli csv")<br/>
 
-- memilih konfigurasi lain nya, seperti nama dan db yang dituju
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/configure_db.PNG " asli csv")<br/>
+- jalankan spark predictor dan akan mendapati hasil seperti ini<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/spark_deploy.PNG " asli csv")<br/>
 
-- berhasil tersimpan
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/berhasil_db.PNG " asli csv")<br/>
+- kemudian jalankan spark to table untu mengubah spark ke dalam table, kemudian masuk ke konfigurasi movies recommended<br>
+  dan di dalamnya ada file reader dan joiner, untuk menggabungkan data yang awal dengan data yang telah diprediksi.<br>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/recom.PNG " asli csv")<br/>
 
- ### gambar knime secara lengkap
+- row filter disini untuk menghapus hasil prediksi yang hasilnya NAN<br>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/row_predik.PNG " asli csv")<br/>
 
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/knime.PNG " asli csv")<br/>
+- dan untuk mengurutkan data hasilnya dipilih ascending untuk nilai kolom prediction
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/asc.PNG " asli csv")<br/>
 
+- row filter dipakai dua kali, untuk row filter terakhir digunakan untuk mengambil best 10 nya, dan outputnya<br>
+  disimpan ke direktori ke yang sudah kita pasang menggunakan csv writer.
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/best.PNG " asli csv")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/excel.PNG " asli csv")<br/>
 
+## hasil deploy
+- hasil yang didapati adalah sebagai berikut sesuai dengan arahan untuk memberi best 10 movie<br>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/hasil_done.PNG " asli csv")<br/>
+
+# 3.Perbandingan menggunakan timer info
+
+- untuk melakukan perbandingan antara csv to spark dengan reader, kita harus menambahkan node seperti berikut<br> 
+  dan mengarahkan kepada data csv yang sama
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/timer.PNG " asli csv")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/konfi.PNG " asli csv")<br/>
+
+- perbedaan data sebagai berikut
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/spark_time.PNG " asli csv")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas1/picture/read_time.PNG " asli csv")<br/>
+
+- dari data diatas sangat jauh perbedaan antara csv to spark dengan file reader, file reader hanya melakukan pengambilan<br> 
+  data yang sangat besar dan ketika melakukan eksekusi, komputer hanya melakukan itu  sendiri tanpa bantuan framework<br>
+  computing apapun, tidak seperti spark yang merupakan open source cluster framework, spark itu untuk pemrosesan data yang<br>
+  lebih cepat, karena data yang dipakai juga besar, jadi terdapat perbedaan waktu yang mencolok.
 
