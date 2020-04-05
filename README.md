@@ -5,3 +5,4 @@ Dokumentasi mata kuliah Big Data 2020
 
 1. Tugas 1 : [Praktek ETL menggunakan KNIME](https://github.com/farizmpr/Bigdata-2020/tree/master/tugas1)
 2. Tugas 2 : [KNIME Big Data](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md)
+3. Tugas 3 : [Recommendation System](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md)
