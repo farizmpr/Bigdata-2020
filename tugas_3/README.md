@@ -168,6 +168,10 @@ Kemungkinan-kemungkinan yg dapat dilakukan yaitu:
 - hasil yang didapati adalah sebagai berikut sesuai dengan arahan untuk memberi best 10 movie<br>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/hasil_done.PNG " asli csv")<br/>
 
+# susunan KNIME
+susunan KNIME seperti berikut
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/arsitek.PNG " asli csv")<br/>
+
 # 3.Perbandingan menggunakan timer info
 
 - untuk melakukan perbandingan antara csv to spark dengan reader, kita harus menambahkan node seperti berikut<br> 
