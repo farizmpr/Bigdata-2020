@@ -59,9 +59,14 @@ Kemungkinan-kemungkinan yg dapat dilakukan yaitu:
 
 # Data Preparation
 
-- data disiapkan dengan dua cara, yang satu menyiapkan data yang didownload dari link di atas, karena berbentuk csv dan menyiapkan data   yang menggunakan spark. dua persiapan tersebut dilakukan dengan menyiapkan node di KNIME.
+- data disiapkan dengan dua cara, yang satu menyiapkan data yang didownload dari link di atas, <br/>
+  karena berbentuk csv dan menyiapkan data   yang menggunakan spark. dua persiapan tersebut dilakukan<br/> 
+  dengan menyiapkan node di KNIME.
+
 ### File Reader File
-- yang pertama membaca data dari file yang sudah di download dari file terlampir. yang dibaca hanya movies.csv<br/>
+
+- yang pertama membaca data dari file yang sudah di download dari file terlampir. yang dibaca hanya <br/>
+  movies.csv<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/file_reader.PNG "file reader")<br>
 
 - dengan melakukan konfigurasi seperti ini, dengan memastikan movieID terbaca<br/>
@@ -73,13 +78,14 @@ Kemungkinan-kemungkinan yg dapat dilakukan yaitu:
 - di dalam add field terdapat workflow yang dapat menyeting userid dan timestamp<br>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_add_fields.PNG "add field")<br>
 
-- melakukan konfigurasi di dalam node constant value untuk menyeting timestamp dan node selanjutnya untuk menyeting userid<br>
+- melakukan konfigurasi di dalam node constant value untuk menyeting timestamp dan node selanjutnya untuk menyeting 
+  userid<br>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_timestamp.PNG "add field")
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/timestamp.PNG "add field")<br>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_userid.PNG "add field")
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/userid.PNG "add field")<br>
 
-- melakukan penambahan node row splitter untuk memecah data untuk keperluan mentraining data serta memilih 20 film<br>
+- melakukan penambahan node row splitter untuk memecah data untuk keperluan mentraining data serta memilih 20 film<br/>
   yang dipilih secara acak.<br>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/row_splitter.PNG "add field")<br>
 
@@ -89,7 +95,8 @@ Kemungkinan-kemungkinan yg dapat dilakukan yaitu:
 - open vie node tersebut untuk melihat hasilnya<br>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_rating.PNG "add field")<br>
 
-- hasil rating didapati seperti ini, dengan keterangan tertera pada gambar, hasil ini sesuai dengan userid yang disetting<br>
+- hasil rating didapati seperti ini, dengan keterangan tertera pada gambar, hasil ini sesuai dengan userid yang <br/>
+  disetting<br>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/hasil_ratings.PNG "add field")<br>
 
 ### File Reader versi SPARK
@@ -104,8 +111,8 @@ Kemungkinan-kemungkinan yg dapat dilakukan yaitu:
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/spark.PNG "add field")
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/conf_spark.PNG "add field")<br>
 
-- pasang node spark partitioning untuk melakukan partisi 80-20 pada data, setelah itu datanya digunakan untuk training<br>
-  model dataset<br>
+- pasang node spark partitioning untuk melakukan partisi 80-20 pada data, setelah itu datanya digunakan untuk<br/> 
+  training model dataset<br>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/partition.PNG "add field")<br>
 
 - pastikan memilih persen dan memilih draw randomly.<br>
@@ -114,7 +121,7 @@ Kemungkinan-kemungkinan yg dapat dilakukan yaitu:
 # Modeling
 
 - proses modeling dimulai ketika menggabungkan data di node spark concatenate, dan node dari ini untuk<br>
-  menjalankan algoritma buat modeling dengan memakai data training set, yang nantinya akan di tes dengan test-set.
+  menjalankan algoritma buat modeling dengan memakai data training set, yang nantinya akan di tes dengan test-set.<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/model.PNG "add field")<br>
 
 # Evaluation
@@ -123,10 +130,10 @@ Kemungkinan-kemungkinan yg dapat dilakukan yaitu:
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/hasilprediksi.PNG "add field")<br>
 
 - dari data yang sudah di modeling dan dari proses evaluasi ini menghapus juga data NAN.setalah itu terdapat hasil<br>
-  untuk menghitung kesalahan antar peringkat film yang awal dan film yang diprediksi.
+  untuk menghitung kesalahan antar peringkat film yang awal dan film yang diprediksi.<br/>
  ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/evaluation.PNG "add field")<br>
  
- - didapati hasil evaluasi dari percobaan seperti berikut
+ - didapati hasil evaluasi dari percobaan seperti berikut<br>
   ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/hasil_prediksi.PNG "add field")<br>
  
 
@@ -149,11 +156,11 @@ Kemungkinan-kemungkinan yg dapat dilakukan yaitu:
 - row filter disini untuk menghapus hasil prediksi yang hasilnya NAN<br>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/row_predik.PNG " asli csv")<br/>
 
-- dan untuk mengurutkan data hasilnya dipilih ascending untuk nilai kolom prediction
+- dan untuk mengurutkan data hasilnya dipilih ascending untuk nilai kolom prediction<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/asc.PNG " asli csv")<br/>
 
 - row filter dipakai dua kali, untuk row filter terakhir digunakan untuk mengambil best 10 nya, dan outputnya<br>
-  disimpan ke direktori ke yang sudah kita pasang menggunakan csv writer.
+  disimpan ke direktori ke yang sudah kita pasang menggunakan csv writer.<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/best.PNG " asli csv")<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/excel.PNG " asli csv")<br/>
 
@@ -164,16 +171,16 @@ Kemungkinan-kemungkinan yg dapat dilakukan yaitu:
 # 3.Perbandingan menggunakan timer info
 
 - untuk melakukan perbandingan antara csv to spark dengan reader, kita harus menambahkan node seperti berikut<br> 
-  dan mengarahkan kepada data csv yang sama
+  dan mengarahkan kepada data csv yang sama<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/timer.PNG " asli csv")<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/konfi.PNG " asli csv")<br/>
 
-- perbedaan data sebagai berikut
+- perbedaan data sebagai berikut<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/spark_time.PNG " asli csv")<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/read_time.PNG " asli csv")<br/>
 
-- dari data diatas sangat jauh perbedaan antara csv to spark dengan file reader, file reader hanya melakukan pengambilan<br> 
-  data yang sangat besar dan ketika melakukan eksekusi, komputer hanya melakukan itu  sendiri tanpa bantuan framework<br>
-  computing apapun, tidak seperti spark yang merupakan open source cluster framework, spark itu untuk pemrosesan data yang<br>
-  lebih cepat, karena data yang dipakai juga besar, jadi terdapat perbedaan waktu yang mencolok.
+- dari data diatas sangat jauh perbedaan antara csv to spark dengan file reader, file reader hanya melakukan pengambilan<br/>
+  data yang sangat besar dan ketika melakukan eksekusi, komputer hanya melakukan itu  sendiri tanpa bantuan framework<br/>
+  computing apapun, tidak seperti spark yang merupakan open source cluster framework, spark itu untuk pemrosesan data yang<br/>
+  lebih cepat, karena data yang dipakai juga besar, jadi terdapat perbedaan waktu yang mencolok.<br/>
 
