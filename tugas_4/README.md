@@ -1,6 +1,6 @@
 ## Bigdata 2020
 
-# Dokumentasi Praktek Recommendation System menggunakan KNIME
+# Stream Analysis: Kafka
 
 * [Tools](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/README.md#Tools)<br/>
 * [Install](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/README.md#Install)<br/>
