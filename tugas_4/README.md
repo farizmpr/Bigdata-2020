@@ -21,7 +21,7 @@ Dari tugas ini kita membutuhkan beberapa tools yang digunakan:
 
 # Kafka Docker
 sebelumnya pastikan docker desktop sudah terinstall.<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/picture/docker.PNG "docker")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/picture/docker.jpg "docker")<br/>
 
 setelah menginstall semuanya, kita akan membangun infrastruktur kafka dengan docker,<br/>
 infrastruktur yang dibuat itu adalah 2 broker dan 1 zookeeper sebagai cluster.<br/>
