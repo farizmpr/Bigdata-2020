@@ -72,7 +72,7 @@ services:
   ketika kafka berjalan, zookeper ini dibutuhkan pada saat itu.<br/>
 - dan yang terakhir, untuk membangun broker, 2 broker. ketika menginstall <br/>
   docker kita harus mensetting port dari kafka. pada kasus ini menggunakan port.<br/>
-  kita mengambil yang kafka-server2 9093:902, artinya menggunakan port 9092 dan<br/>
+  kita mengambil yang kafka-server2 9093:9092, artinya menggunakan port 9093 dan<br/>
   tcp port 9092
   
   Information : jika ingin menambah broker dapat menambah dibawahnya saja seperti dengan<br/>
