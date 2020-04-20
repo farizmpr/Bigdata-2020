@@ -107,6 +107,6 @@ services:
   ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/picture/conductor_install.PNG "docker")<br/>
 
 - melakukan pengecekan bahwa kafkanya sudah terbuat<br/>
-  ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/picture/conductor_install.PNG "docker")<br/>
+  ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/picture/result.PNG "docker")<br/>
 
 
