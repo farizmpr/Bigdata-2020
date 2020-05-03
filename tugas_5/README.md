@@ -2,12 +2,12 @@
 
 # Stream Analysis: Kafka
 
-* [Tools](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/README.md#Tools)<br/>
-* [Install](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/README.md#Install)<br/>
-* [Tugas](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/README.md#Tugas)<br/>
-* [2 workers](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/README.md#2_workers)<br/>
-* [5 workers](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/README.md#5_workers)<br/>
-* [Kesimpulan](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/README.md#Kesimpulan)<br/>
+* [Tools](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/README.md#Tools)<br/>
+* [Install](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/README.md#Install)<br/>
+* [Tugas](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/README.md#Tugas)<br/>
+* [2 workers](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/README.md#2_workers)<br/>
+* [5 workers](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/README.md#5_workers)<br/>
+* [Kesimpulan](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/README.md#Kesimpulan)<br/>
 
 # Tools
 Dari tugas ini kita membutuhkan beberapa tools yang digunakan:
