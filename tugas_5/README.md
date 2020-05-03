@@ -75,7 +75,7 @@ services:
  
 ```
 
-- jalankan yml untuk menjalankan worker. dengan syntax ``` compose up -d ```<br/>
+- jalankan yml untuk menjalankan worker. dengan syntax ``` docker-compose up -d ```<br/>
 
 - mengecek di ui.<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step1_a.PNG "docker")<br/>
@@ -188,7 +188,7 @@ services:
 
 ```
 
-- jalankan yml untuk menjalankan worker. dengan syntax ``` compose up -d ```<br/>
+- jalankan yml untuk menjalankan worker. dengan syntax ``` docker-compose up -d ```<br/>
 
 - mengecek di ui.<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step3_bukti5.PNG "docker")<br/>
