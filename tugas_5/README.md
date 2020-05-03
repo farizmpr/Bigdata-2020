@@ -229,8 +229,8 @@ disesuaikan dengan alamat yang ada<br/>
 
 # Kesimpulan
 
-ketika memberikan 100 partisi kepada 2 worker, itu akan memakan proses yang lebih singkat jika kita berikan<br/>
-ke 5 worker. karena worker yang lebih banyak itu menghabiskan waktu pada proses pemabgian kerja. jadi jika <br/>
+ketika memberikan 100 partisi kepada 2 worker, itu akan memakan proses yang lebih singkat jika dibandingkan kita berikan<br/>
+ke 5 worker. karena worker yang lebih banyak itu menghabiskan waktu pada proses pemabagian kerja. jadi jika <br/>
 semakin banyak partisi yang kita berikan, nilai worker nya juga harus semakin banyak . agar pada saat melakukan<br/>
 proses pekerjaan akan lebih efektif dan efisien. tentunya jika nilai worker sedikit dan partisi yang diberikan<br/>
 itu banyak, akan terjadi overhead proses yang akan banyak membuang banyak waktu pada saat proses pembagian kerja kepada<br/>
