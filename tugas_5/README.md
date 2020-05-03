@@ -99,7 +99,7 @@ disesuaikan dengan alamat yang ada<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step10_a_bukti.PNG "docker")<br/>
 
 
-- serta jangan lupa mengecek di ui apache spar.<br/>
+- serta jangan lupa mengecek di ui apache spark.<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step10_a.PNG "docker")<br/>
 
 2. partisi 1000 menjalankan syntax dengan yang menjalankan syntax dibawah<br/>
@@ -110,7 +110,7 @@ disesuaikan dengan alamat yang ada<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step11_a_bukti.PNG "docker")<br/>
 
 
-- serta jangan lupa mengecek di ui apache spar.<br/>
+- serta jangan lupa mengecek di ui apache spark.<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step11_a.PNG "docker")<br/>
 
 # 5 worker
@@ -212,7 +212,7 @@ disesuaikan dengan alamat yang ada<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step10_bukti.PNG "docker")<br/>
 
 
-- serta jangan lupa mengecek di ui apache spar.<br/>
+- serta jangan lupa mengecek di ui apache spark.<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step10.PNG "docker")<br/>
 
 2. partisi 1000 menjalankan syntax dengan yang menjalankan syntax dibawah<br/>
@@ -223,7 +223,7 @@ disesuaikan dengan alamat yang ada<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step11_bukti.PNG "docker")<br/>
 
 
-- serta jangan lupa mengecek di ui apache spar.<br/>
+- serta jangan lupa mengecek di ui apache spark.<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step11.PNG "docker")<br/>
 
 
