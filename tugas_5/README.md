@@ -1,6 +1,6 @@
 ## Bigdata 2020
 
-# Stream Analysis: Kafka
+# Docker: Apache Spark
 
 * [Tools](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/README.md#Tools)<br/>
 * [Install](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/README.md#Install)<br/>
