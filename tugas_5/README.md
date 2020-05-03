@@ -217,7 +217,7 @@ disesuaikan dengan alamat yang ada<br/>
 
 2. partisi 1000 menjalankan syntax dengan yang menjalankan syntax dibawah<br/>
 disesuaikan dengan alamat yang ada<br/>
-```  park-submit --master spark://172.25.0.6:7077 examples/src/main/python/pi.py 1000 ````.<br/>
+```  park-submit --master spark://172.25.0.6:7077 examples/src/main/python/pi.py 1000 ```.<br/>
 
 - eksekusi akan menghasilkan nilai pi seperti yang ada di bawah.<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step11_bukti.PNG "docker")<br/>
