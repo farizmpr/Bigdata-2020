@@ -1,383 +1,238 @@
-<<<<<<< HEAD
 ## Bigdata 2020
 
-# Dokumentasi Praktek Recommendation System menggunakan KNIME
+# Stream Analysis: Kafka
 
-* [Business Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#business-understanding)<br/>
-* [Data Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#data-understanding)<br/>
-* [Data Preparation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#data-preparation)<br/>
-* [Modeling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#modeling)<br/>
-* [Evaluation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#evaluation)<br/>
-* [Deployment](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#deployment)<br/>
+* [Tools](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/README.md#Tools)<br/>
+* [Install](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/README.md#Install)<br/>
+* [Tugas](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/README.md#Tugas)<br/>
+* [2 workers](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/README.md#2_workers)<br/>
+* [5 workers](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/README.md#5_workers)<br/>
+* [Kesimpulan](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/README.md#Kesimpulan)<br/>
 
-# Business Understanding
-Kemungkinan-kemungkinan yg dapat dilakukan yaitu:
-1. Dari data tersebut, dapat dilakukan proses untuk melihat rekomendasi film terbaik yang dinilai oleh sebelumnya
-2. Dari data tersebut, dapat dilihat berupa kumpulan data dengan isi kumpulan film yang disertai dengan ratings
-3. Dari data tersebut, dapat dilakukan proses evaluasi serta filtering agar menghasilkan 10 film terbaik yang sudah dinilai sebelumnya
+# Tools
+Dari tugas ini kita membutuhkan beberapa tools yang digunakan:
+1. Docker Desktop( dengan syarat spesifikasi windows 10 pro jika di install di windows)
+2. Apache Spark
 
-# Data Understanding
+# Install
+- yang pertama install docker dari web yang tertera https://www.docker.com/
+- melakukan intruksi dari Apache Spark dari Bitnami
 
-- Dataset menggambarkan penilaian dari movielens sebagai pelayanan movie recommendation, dataset ini berisi 20000263<br>
-  peringkat, data ini dibuat oleh 138493 pengguna dari tanggal 09 januari 1995 sampai 31 maret 2015. dataset ini berisi<br>
-  pengguna yang dipilih secara acak untuk dimasukkan. semua pengguna memiliki nilai setidaknya 20 film.
-  
-- dataset  masing-masing pengguna di representasi oleh id
+# Tugas
+- Jumlah worker 2,5
+- Jumlah CPU: 2, 4
+- Memory: 1G
+- Partisi: 100, 1000
 
-- dataset berisi csv sebagai berikut :
-  - tag.csv that berisi tags movie yang dilakukan oleh users:
-  - userId
-  - movieId
-  - tag
-  - timestamp
+Untuk menambahkan worker, memodifikasi jumlah CPU dan memory, kalian bisa mengcopy file<br/> 
+docker-compose.yml dan memodifikasi sesuai kebutuhan.
 
-- rating.csv rating yang dilakukan oleh users:
-  - userId
-  - movieId
-  - rating
-  - timestamp
-  
-- movie.csv mengandung informasi dari movie:
-  - movieId
-  - title
-  - genres
-  
-- link.csv pengidentifikasi yang disangkutpautkan ke source lain:
-  - movieId
-  - imdbId
-  - tmbdId
-  
-- genome_scores.csv mengandung movie-tag relevance data:
-  - movieId
-  - tagId
-  - relevance
-  
-- genome_tags.csv mengandung tag descriptions:
-  - tagId
-  - tag
-  
-- Source dataset : https://grouplens.org/datasets/movielens/
+Dokumentasikan percobaan kalian dengan baik dan buatlah kesimpulan dari hasil percobaan <br/>
+tersebut.
 
-# Data Preparation
+# 2 worker
+- sebelumnya pastikan docker desktop sudah terinstall.<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/picture/docker.jpg "docker")<br/>
 
-- data disiapkan dengan dua cara, yang satu menyiapkan data yang didownload dari link di atas, <br/>
-  karena berbentuk csv dan menyiapkan data   yang menggunakan spark. dua persiapan tersebut dilakukan<br/> 
-  dengan menyiapkan node di KNIME.
+- masuk ke halaman yang terdapat file yml.<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step1.PNG "docker")<br/>
 
-### File Reader File
+```version: '2'
 
-- yang pertama membaca data dari file yang sudah di download dari file terlampir. yang dibaca hanya <br/>
-  movies.csv<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/file_reader.PNG "file reader")<br>
-
-- dengan melakukan konfigurasi seperti ini, dengan memastikan movieID terbaca<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/file_reader_conf.PNG "file reader conf")<br>
-
-- dari ini kita melakukan konfigurasi di dalam node add fields untuk menambahkan userid dan timestamp.<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/add_fields.PNG "add field")<br>
-
-- di dalam add field terdapat workflow yang dapat menyeting userid dan timestamp<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_add_fields.PNG "add field")<br>
-
-- melakukan konfigurasi di dalam node constant value untuk menyeting timestamp dan node selanjutnya untuk menyeting 
-  userid<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_timestamp.PNG "add field")
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/timestamp.PNG "add field")<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_userid.PNG "add field")
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/userid.PNG "add field")<br>
-
-- melakukan penambahan node row splitter untuk memecah data untuk keperluan mentraining data serta memilih 20 film<br/>
-  yang dipilih secara acak.<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/row_splitter.PNG "add field")<br>
-
-- melakukan konfigurasi di dalam row splitter seperti ini<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/row_splitter_conf.PNG "add field")<br>
-
-- open vie node tersebut untuk melihat hasilnya<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_rating.PNG "add field")<br>
-
-- hasil rating didapati seperti ini, dengan keterangan tertera pada gambar, hasil ini sesuai dengan userid yang <br/>
-  disetting<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/hasil_ratings.PNG "add field")<br>
-
-### File Reader versi SPARK
-
-- memulai dengan memasang node local big data environment untuk disambung ke node spark<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/local_bigdata.PNG "add field")<br>
-
-- pastikan konfigurasi seperti ini<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/conf_local_bigdata.PNG "add field")<br>
-
-- sambungkan local environment big data dengan spark, sehingga dapat membaca file dari directory yang tertera<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/spark.PNG "add field")
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/conf_spark.PNG "add field")<br>
-
-- pasang node spark partitioning untuk melakukan partisi 80-20 pada data, setelah itu datanya digunakan untuk<br/> 
-  training model dataset<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/partition.PNG "add field")<br>
-
-- pastikan memilih persen dan memilih draw randomly.<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/conf_partition.PNG "add field")<br>
-
-# Modeling
-
-- proses modeling dimulai ketika menggabungkan data di node spark concatenate, dan node dari ini untuk<br>
-  menjalankan algoritma buat modeling dengan memakai data training set, yang nantinya akan di tes dengan test-set.<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/model.PNG "add field")<br>
-
-# Evaluation
-
-- data yang sudah diprediksi berupa seperti ini
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/hasilprediksi.PNG "add field")<br>
-
-- dari data yang sudah di modeling dan dari proses evaluasi ini menghapus juga data NAN.setalah itu terdapat hasil<br>
-  untuk menghitung kesalahan antar peringkat film yang awal dan film yang diprediksi.<br/>
- ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/evaluation.PNG "add field")<br>
+services:
+  spark:
+    image: bitnami/spark:2
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+    ports:
+      - '8080:8080'
+  spark-worker-1:
+    image: bitnami/spark:2
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+  spark-worker-2:
+    image: bitnami/spark:2
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
  
- - didapati hasil evaluasi dari percobaan seperti berikut<br>
-  ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/hasil_prediksi.PNG "add field")<br>
- 
+```
 
-# Deployment
+- jalankan yml untuk menjalankan worker. dengan syntax ``` compose up -d ```<br/>
 
-- workflow ini akan mendisplay 10 peringkat prediksi film rekomendasi<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/deploy.PNG " asli csv")<br/>
+- mengecek di ui.<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step1_a.PNG "docker")<br/>
 
-### konfigurasi node top 20
-- tidak lupa menjalankan file reader untuk di join dengan file prediksi<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/deploy_read.PNG " asli csv")<br/>
+- masuk di cmder dengan syntax dengan syntax ``` docker ps ```.<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step2_a.PNG "docker")<br/>
 
-- jalankan spark predictor dan akan mendapati hasil seperti ini<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/spark_deploy.PNG " asli csv")<br/>
+- eksekusi id container dengan menggunakan ``` docker exec -it <container_id> /bin/bash ```.<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step6_a.PNG "docker")<br/>
 
-- kemudian jalankan spark to table untu mengubah spark ke dalam table, kemudian masuk ke konfigurasi movies recommended<br>
-  dan di dalamnya ada file reader dan joiner, untuk menggabungkan data yang awal dengan data yang telah diprediksi.<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/recom.PNG " asli csv")<br/>
+- cek nama alamat hostname dengan syntax ini ``` hostname -i ```.<br/>
 
-- row filter disini untuk menghapus hasil prediksi yang hasilnya NAN<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/row_predik.PNG " asli csv")<br/>
+- jalankan syntax ini dengan mengatur partisi yang diperintahkan<br/>
+```  park-submit --master spark://172.26.0.2:7077 examples/src/main/python/pi.py 10 ```.<br/>
 
-- dan untuk mengurutkan data hasilnya dipilih ascending untuk nilai kolom prediction<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/asc.PNG " asli csv")<br/>
+1. partisi 100 menjalankan syntax dengan yang menjalankan syntax dibawah<br/>
+disesuaikan dengan alamat yang ada<br/>
+```  park-submit --master spark://172.26.0.2:7077 examples/src/main/python/pi.py 100 ```.<br/>
 
-- row filter dipakai dua kali, untuk row filter terakhir digunakan untuk mengambil best 10 nya, dan outputnya<br>
-  disimpan ke direktori ke yang sudah kita pasang menggunakan csv writer.<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/best.PNG " asli csv")<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/excel.PNG " asli csv")<br/>
+- eksekusi akan menghasilkan nilai pi seperti yang ada di bawah.<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step10_a_bukti.PNG "docker")<br/>
 
-## hasil deploy
-- hasil yang didapati adalah sebagai berikut sesuai dengan arahan untuk memberi best 10 movie<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/hasil_done.PNG " asli csv")<br/>
 
-# susunan KNIME
-susunan KNIME seperti berikut
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/arsitek.PNG " asli csv")<br/>
+- serta jangan lupa mengecek di ui apache spar.<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step10_a.PNG "docker")<br/>
 
-# 3.Perbandingan menggunakan timer info
+2. partisi 1000 menjalankan syntax dengan yang menjalankan syntax dibawah<br/>
+disesuaikan dengan alamat yang ada<br/>
+```  park-submit --master spark://172.26.0.2:7077 examples/src/main/python/pi.py 1000 ```.<br/>
 
-- untuk melakukan perbandingan antara csv to spark dengan reader, kita harus menambahkan node seperti berikut<br> 
-  dan mengarahkan kepada data csv yang sama<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/timer.PNG " asli csv")<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/konfi.PNG " asli csv")<br/>
+- eksekusi akan menghasilkan nilai pi seperti yang ada di bawah.<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step11_a_bukti.PNG "docker")<br/>
 
-- perbedaan data sebagai berikut<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/spark_time.PNG " asli csv")<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/read_time.PNG " asli csv")<br/>
 
-- dari data diatas sangat jauh perbedaan antara csv to spark dengan file reader, file reader hanya melakukan pengambilan<br/>
-  data yang sangat besar dan ketika melakukan eksekusi, komputer hanya melakukan itu  sendiri tanpa bantuan framework<br/>
-  computing apapun, tidak seperti spark yang merupakan open source cluster framework, spark itu untuk pemrosesan data<br/>
-  yang lebih cepat, karena data yang dipakai juga besar, jadi terdapat perbedaan waktu yang mencolok.<br/>
+- serta jangan lupa mengecek di ui apache spar.<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step11_a.PNG "docker")<br/>
 
-=======
-## Bigdata 2020
+# 5 worker
+- masuk ke halaman yang terdapat file yml.<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step1.PNG "docker")<br/>
 
-# Dokumentasi Praktek Recommendation System menggunakan KNIME
+```version: '2'
 
-* [Business Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#business-understanding)<br/>
-* [Data Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#data-understanding)<br/>
-* [Data Preparation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#data-preparation)<br/>
-* [Modeling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#modeling)<br/>
-* [Evaluation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#evaluation)<br/>
-* [Deployment](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md#deployment)<br/>
+services:
+  spark:
+    image: bitnami/spark:2
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+    ports:
+      - '8080:8080'
+  spark-worker-1:
+    image: bitnami/spark:2
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+  spark-worker-2:
+    image: bitnami/spark:2
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+  spark-worker-3:
+    image: bitnami/spark:2
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+  spark-worker-4:
+    image: bitnami/spark:2
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+  spark-worker-5:
+    image: bitnami/spark:2
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
 
-# Business Understanding
-Kemungkinan-kemungkinan yg dapat dilakukan yaitu:
-1. Dari data tersebut, dapat dilakukan proses untuk melihat rekomendasi film terbaik yang dinilai oleh sebelumnya
-2. Dari data tersebut, dapat dilihat berupa kumpulan data dengan isi kumpulan film yang disertai dengan ratings
-3. Dari data tersebut, dapat dilakukan proses evaluasi serta filtering agar menghasilkan 10 film terbaik yang sudah dinilai sebelumnya
+```
 
-# Data Understanding
+- jalankan yml untuk menjalankan worker. dengan syntax ``` compose up -d ```<br/>
 
-- Dataset menggambarkan penilaian dari movielens sebagai pelayanan movie recommendation, dataset ini berisi 20000263<br>
-  peringkat, data ini dibuat oleh 138493 pengguna dari tanggal 09 januari 1995 sampai 31 maret 2015. dataset ini berisi<br>
-  pengguna yang dipilih secara acak untuk dimasukkan. semua pengguna memiliki nilai setidaknya 20 film.
-  
-- dataset  masing-masing pengguna di representasi oleh id
+- mengecek di ui.<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step3_bukti5.PNG "docker")<br/>
 
-- dataset berisi csv sebagai berikut :
-  - tag.csv that berisi tags movie yang dilakukan oleh users:
-  - userId
-  - movieId
-  - tag
-  - timestamp
+- masuk di cmder dengan syntax dengan syntax ``` docker ps ```.<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step2.PNG "docker")<br/>
 
-- rating.csv rating yang dilakukan oleh users:
-  - userId
-  - movieId
-  - rating
-  - timestamp
-  
-- movie.csv mengandung informasi dari movie:
-  - movieId
-  - title
-  - genres
-  
-- link.csv pengidentifikasi yang disangkutpautkan ke source lain:
-  - movieId
-  - imdbId
-  - tmbdId
-  
-- genome_scores.csv mengandung movie-tag relevance data:
-  - movieId
-  - tagId
-  - relevance
-  
-- genome_tags.csv mengandung tag descriptions:
-  - tagId
-  - tag
-  
-- Source dataset : https://grouplens.org/datasets/movielens/
+- eksekusi id container dengan menggunakan ``` docker exec -it <container_id> /bin/bash ```.<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step6.PNG "docker")<br/>
 
-# Data Preparation
+- cek nama alamat hostname dengan syntax ini ``` hostname -i ```.<br/>
 
-- data disiapkan dengan dua cara, yang satu menyiapkan data yang didownload dari link di atas, <br/>
-  karena berbentuk csv dan menyiapkan data   yang menggunakan spark. dua persiapan tersebut dilakukan<br/> 
-  dengan menyiapkan node di KNIME.
+- jalankan syntax ini dengan mengatur partisi yang diperintahkan<br/>
+```  park-submit --master spark://172.25.0.6:7077 examples/src/main/python/pi.py 10 ```.<br/>
 
-### File Reader File
+1. partisi 100 menjalankan syntax dengan yang menjalankan syntax dibawah<br/>
+disesuaikan dengan alamat yang ada<br/>
+```  park-submit --master spark://172.25.0.6:7077 examples/src/main/python/pi.py 100 ```.<br/>
 
-- yang pertama membaca data dari file yang sudah di download dari file terlampir. yang dibaca hanya <br/>
-  movies.csv<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/file_reader.PNG "file reader")<br>
+- eksekusi akan menghasilkan nilai pi seperti yang ada di bawah.<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step10_bukti.PNG "docker")<br/>
 
-- dengan melakukan konfigurasi seperti ini, dengan memastikan movieID terbaca<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/file_reader_conf.PNG "file reader conf")<br>
 
-- dari ini kita melakukan konfigurasi di dalam node add fields untuk menambahkan userid dan timestamp.<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/add_fields.PNG "add field")<br>
+- serta jangan lupa mengecek di ui apache spar.<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step10.PNG "docker")<br/>
 
-- di dalam add field terdapat workflow yang dapat menyeting userid dan timestamp<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_add_fields.PNG "add field")<br>
+2. partisi 1000 menjalankan syntax dengan yang menjalankan syntax dibawah<br/>
+disesuaikan dengan alamat yang ada<br/>
+```  park-submit --master spark://172.25.0.6:7077 examples/src/main/python/pi.py 1000 ````.<br/>
 
-- melakukan konfigurasi di dalam node constant value untuk menyeting timestamp dan node selanjutnya untuk menyeting 
-  userid<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_timestamp.PNG "add field")
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/timestamp.PNG "add field")<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_userid.PNG "add field")
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/userid.PNG "add field")<br>
+- eksekusi akan menghasilkan nilai pi seperti yang ada di bawah.<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step11_bukti.PNG "docker")<br/>
 
-- melakukan penambahan node row splitter untuk memecah data untuk keperluan mentraining data serta memilih 20 film<br/>
-  yang dipilih secara acak.<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/row_splitter.PNG "add field")<br>
 
-- melakukan konfigurasi di dalam row splitter seperti ini<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/row_splitter_conf.PNG "add field")<br>
+- serta jangan lupa mengecek di ui apache spar.<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/picture/step11.PNG "docker")<br/>
 
-- open vie node tersebut untuk melihat hasilnya<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/node_rating.PNG "add field")<br>
 
-- hasil rating didapati seperti ini, dengan keterangan tertera pada gambar, hasil ini sesuai dengan userid yang <br/>
-  disetting<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/hasil_ratings.PNG "add field")<br>
+# Kesimpulan
 
-### File Reader versi SPARK
+ketika memberikan 100 partisi kepada 2 worker, itu akan memakan proses yang lebih singkat jika kita berikan<br/>
+ke 5 worker. karena worker yang lebih banyak itu menghabiskan waktu pada proses pemabgian kerja. jadi jika <br/>
+semakin banyak partisi yang kita berikan, nilai worker nya juga harus semakin banyak . agar pada saat melakukan<br/>
+proses pekerjaan akan lebih efektif dan efisien. tentunya jika nilai worker sedikit dan partisi yang diberikan<br/>
+itu banyak, akan terjadi overhead proses yang akan banyak membuang banyak waktu pada saat proses pembagian kerja kepada<br/>
+workernya.
 
-- memulai dengan memasang node local big data environment untuk disambung ke node spark<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/local_bigdata.PNG "add field")<br>
-
-- pastikan konfigurasi seperti ini<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/conf_local_bigdata.PNG "add field")<br>
-
-- sambungkan local environment big data dengan spark, sehingga dapat membaca file dari directory yang tertera<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/spark.PNG "add field")
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/conf_spark.PNG "add field")<br>
-
-- pasang node spark partitioning untuk melakukan partisi 80-20 pada data, setelah itu datanya digunakan untuk<br/> 
-  training model dataset<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/partition.PNG "add field")<br>
-
-- pastikan memilih persen dan memilih draw randomly.<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/conf_partition.PNG "add field")<br>
-
-# Modeling
-
-- proses modeling dimulai ketika menggabungkan data di node spark concatenate, dan node dari ini untuk<br>
-  menjalankan algoritma buat modeling dengan memakai data training set, yang nantinya akan di tes dengan test-set.<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/model.PNG "add field")<br>
-
-# Evaluation
-
-- data yang sudah diprediksi berupa seperti ini
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/hasilprediksi.PNG "add field")<br>
-
-- dari data yang sudah di modeling dan dari proses evaluasi ini menghapus juga data NAN.setalah itu terdapat hasil<br>
-  untuk menghitung kesalahan antar peringkat film yang awal dan film yang diprediksi.<br/>
- ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/evaluation.PNG "add field")<br>
- 
- - didapati hasil evaluasi dari percobaan seperti berikut<br>
-  ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/hasil_prediksi.PNG "add field")<br>
- 
-
-# Deployment
-
-- workflow ini akan mendisplay 10 peringkat prediksi film rekomendasi<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/deploy.PNG " asli csv")<br/>
-
-### konfigurasi node top 20
-- tidak lupa menjalankan file reader untuk di join dengan file prediksi<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/deploy_read.PNG " asli csv")<br/>
-
-- jalankan spark predictor dan akan mendapati hasil seperti ini<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/spark_deploy.PNG " asli csv")<br/>
-
-- kemudian jalankan spark to table untu mengubah spark ke dalam table, kemudian masuk ke konfigurasi movies recommended<br>
-  dan di dalamnya ada file reader dan joiner, untuk menggabungkan data yang awal dengan data yang telah diprediksi.<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/recom.PNG " asli csv")<br/>
-
-- row filter disini untuk menghapus hasil prediksi yang hasilnya NAN<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/row_predik.PNG " asli csv")<br/>
-
-- dan untuk mengurutkan data hasilnya dipilih ascending untuk nilai kolom prediction<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/asc.PNG " asli csv")<br/>
-
-- row filter dipakai dua kali, untuk row filter terakhir digunakan untuk mengambil best 10 nya, dan outputnya<br>
-  disimpan ke direktori ke yang sudah kita pasang menggunakan csv writer.<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/best.PNG " asli csv")<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/excel.PNG " asli csv")<br/>
-
-## hasil deploy
-- hasil yang didapati adalah sebagai berikut sesuai dengan arahan untuk memberi best 10 movie<br>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/hasil_done.PNG " asli csv")<br/>
-
-# susunan KNIME
-susunan KNIME seperti berikut
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/arsitek.PNG " asli csv")<br/>
-
-# 3.Perbandingan menggunakan timer info
-
-- untuk melakukan perbandingan antara csv to spark dengan reader, kita harus menambahkan node seperti berikut<br> 
-  dan mengarahkan kepada data csv yang sama<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/timer.PNG " asli csv")<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/konfi.PNG " asli csv")<br/>
-
-- perbedaan data sebagai berikut<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/spark_time.PNG " asli csv")<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/read_time.PNG " asli csv")<br/>
-
-- dari data diatas sangat jauh perbedaan antara csv to spark dengan file reader, file reader hanya melakukan pengambilan<br/>
-  data yang sangat besar dan ketika melakukan eksekusi, komputer hanya melakukan itu  sendiri tanpa bantuan framework<br/>
-  computing apapun, tidak seperti spark yang merupakan open source cluster framework, spark itu untuk pemrosesan data<br/>
-  yang lebih cepat, karena data yang dipakai juga besar, jadi terdapat perbedaan waktu yang mencolok.<br/>
-
->>>>>>> 735d9601d1a15a92dd44e0886c52c263e2539981
