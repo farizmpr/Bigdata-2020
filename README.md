@@ -7,4 +7,5 @@ Dokumentasi mata kuliah Big Data 2020
 2. Tugas 2 : [KNIME Big Data](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_2/README.md)
 3. Tugas 3 : [Recommendation System](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/README.md)
 4. Tugas 4 : [Stream Analysis: Kafka](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/README.md)
-4. Tugas 5 : [Docker: Apache Spark](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/README.md)
+5. Tugas 5 : [Docker: Apache Spark](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/README.md)
+6. Tugas 6 : [Docker: Apache Spark](https://github.com/farizmpr/Bigdata-2020/tree/master/tugas_6)
