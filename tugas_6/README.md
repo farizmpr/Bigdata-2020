@@ -2,17 +2,17 @@
 
 # Dokumentasi Tugas 6
 
-* [MLIB to PMML](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#Dokumentasi_MLlib_model_to_PMML_KNIME)<br/>
-* [Spark compiled predictor](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#Spark_compiled_predictor)<br/>
+* [MLIB to PMML](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#dokumentasi-mllib-model-to-pmml-knime)<br/>
+* [Spark compiled predictor](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#dokumentasi-spark-compiled-predictor)<br/>
 
 # Dokumentasi MLlib model to PMML KNIME
 
-* [Business Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#business-understanding_(MLib))<br/>
-* [Data Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#data-understanding_(MLib))<br/>
-* [Data Preparation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#data-preparation_(MLib))<br/>
-* [Modeling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#modeling_(MLib))<br/>
-* [Evaluation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#evaluation_(MLib))<br/>
-* [Deployment](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#deployment_(MLib))<br/>
+* [Business Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#business-understanding-mlib)<br/>
+* [Data Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#data-understanding-mlib)<br/>
+* [Data Preparation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#data-preparation-mlib)<br/>
+* [Modeling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#modeling-mlib)<br/>
+* [Evaluation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#evaluation-mlib)<br/>
+* [Deployment](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#deployment-mlib)<br/>
 
 # Business Understanding (MLib) 
 
@@ -63,19 +63,19 @@ machine learning model.
 # Modeling (MLib)
 
 - proses modeling dimulai dengan menggunakan node spark k-means untuk melakukan train pada table sebelumnya<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/5.PNG "add field")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/picture/5.PNG "add field")<br/>
 
 - melakukan pengaturan di node spark k-means dengan memaskkan semua parameter yang ada<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/5_conf.PNG "add field")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/picture/5_conf.PNG "add field")<br/>
 
 - memasang node spark MLIB to PMML agar mengubah model dari spark menjadi PMML<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/6.PNG "add field")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/picture/6.PNG "add field")<br/>
 
 - memasang node PMML compiler agar bisa dijalankan oleh node compiled model predictor<br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/7.PNG "add field")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/picture/7.PNG "add field")<br/>
 
 - node ini mengubah model pmml ke java bytecode <br/>
-![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_3/picture/7_conf.PNG "add field")<br/>
+![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/picture/7_conf.PNG "add field")<br/>
 
 - gambar dari Modeling<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/picture/8.PNG "file reader")<br/>
@@ -127,12 +127,12 @@ machine learning model.
 
 # Dokumentasi Spark compiled predictor
 
-* [Business Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#business-understanding_(Spark))<br/>
-* [Data Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#data-understanding_(Spark))<br/>
-* [Data Preparation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#data-preparation_(Spark))<br/>
-* [Modeling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#modeling_(Spark))<br/>
-* [Evaluation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#evaluation_(Spark))<br/>
-* [Deployment](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#deployment_(Spark))<br/>
+* [Business Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#business-understanding-spark)<br/>
+* [Data Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#data-understanding-spark)<br/>
+* [Data Preparation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#data-preparation-spark)<br/>
+* [Modeling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#modeling-spark)<br/>
+* [Evaluation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#evaluation-spark)<br/>
+* [Deployment](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_6/README.md#deployment-spark)<br/>
 
 # Business Understanding (Spark) 
 
