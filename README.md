@@ -9,4 +9,4 @@ Dokumentasi mata kuliah Big Data 2020
 4. Tugas 4 : [Stream Analysis: Kafka](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_4/README.md)
 5. Tugas 5 : [Docker: Apache Spark](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_5/README.md)
 6. Tugas 6 : [MLIB TO PMML and Spark model predictor](https://github.com/farizmpr/Bigdata-2020/tree/master/tugas_6)
-7. Tugas 7 : [MLIB TO PMML and Spark model predictor](https://github.com/farizmpr/Bigdata-2020/tree/master/tugas_7)
+7. Tugas 7 : [Time Series](https://github.com/farizmpr/Bigdata-2020/tree/master/tugas_7)
