@@ -44,7 +44,7 @@ pda dataset, dan menganalisa kebutuhan energi yang ada di irlandia
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/picture/4.PNG "file reader")<br/>
 
 - memasang node table DB Table Creator yang dilihat dari node tersebut <br/>
-Node ini disambung dari connection dari environment sebelumnya
+Node ini disambung dari connection dari environment sebelumnya<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/picture/5.PNG "file reader")<br/>
 
 - memasang konfigurasi dari node table DB Table Creator <br/>
