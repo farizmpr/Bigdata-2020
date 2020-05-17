@@ -2,12 +2,12 @@
 
 # Dokumentasi Tugas 7
 
-* [Business Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/README.md#business-understanding-mlib)<br/>
-* [Data Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/README.md#data-understanding-mlib)<br/>
-* [Data Preparation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/README.md#data-preparation-mlib)<br/>
-* [Modeling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/README.md#modeling-mlib)<br/>
-* [Evaluation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/README.md#evaluation-mlib)<br/>
-* [Deployment](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/README.md#deployment-mlib)<br/>
+* [Business Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/README.md#business-understanding)<br/>
+* [Data Understanding](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/README.md#data-understanding)<br/>
+* [Data Preparation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/README.md#data-preparation)<br/>
+* [Modeling](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/README.md#modeling)<br/>
+* [Evaluation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/README.md#evaluation)<br/>
+* [Deployment](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/README.md#deployment)<br/>
 
 # Business Understanding
 
