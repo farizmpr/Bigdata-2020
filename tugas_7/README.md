@@ -9,12 +9,12 @@
 * [Evaluation](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/README.md#evaluation-mlib)<br/>
 * [Deployment](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/README.md#deployment-mlib)<br/>
 
-# Business Understanding (MLib) 
+# Business Understanding
 
 Kemungkinan-kemungkinan yang dapat dilakukan dari Data tersebut adalah untuk menganalisa proses yang terdapat<br/>
 pda dataset, dan menganalisa kebutuhan energi yang ada di irlandia
 
-# Data Understanding (MLib)
+# Data Understanding
 
 - Dataset iris ini terdiri dari 3 coloumns dan 5000++ rows yang berisi data penggunaan energi di irlandia
 
@@ -29,7 +29,7 @@ pda dataset, dan menganalisa kebutuhan energi yang ada di irlandia
 
 - kolom reading merupakan kolom energi data meter
 
-# Data Preparation (MLib)
+# Data Preparation
 
 - workflow<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/picture/1.PNG "file reader")<br/>
@@ -188,7 +188,7 @@ FROM #table#
 - mendapati hasil dari sparksql query<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/picture/28.PNG "file reader")<br/>
 
-# Modeling (MLib)
+# Modeling
 
 - memasang node spark normalizer<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/picture/29.PNG "file reader")<br/>
@@ -216,7 +216,7 @@ dan berikut adalah hasilnya<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/picture/38.PNG "file reader")<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/picture/39.PNG "file reader")<br/>
 
-# Evaluation (MLib)
+# Evaluation
 
 - dari data yang didapat memasang node spark to table agar bisa digunakan pad node sebelumnya<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/picture/40.PNG "file reader")<br/>
@@ -246,7 +246,7 @@ dan berikut adalah hasilnya<br/>
 - memasang node spark coloumn rename<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/picture/51.PNG "file reader")<br/>
  
-# Deployment (MLib) 
+# Deployment
 
 - memasang node spark to hive gunanya untuk mengeksport ke bentuk hivek<br/>
 ![alt text](https://github.com/farizmpr/Bigdata-2020/blob/master/tugas_7/picture/52.PNG "file reader")<br/>
